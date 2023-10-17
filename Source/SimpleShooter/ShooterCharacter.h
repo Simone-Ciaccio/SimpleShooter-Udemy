@@ -9,6 +9,7 @@
 
 class UInputMappingContext;
 class UInputAction;
+class AGun;
 
 UCLASS()
 class SIMPLESHOOTER_API AShooterCharacter : public ACharacter
@@ -24,26 +25,32 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
-	UPROPERTY(EditAnywhere, Category = Input)
+	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputMappingContext* ShooterCharacterInputMapping;
 
-	UPROPERTY(EditAnywhere, Category = Input)
+	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* MoveAction;
 
-	UPROPERTY(EditAnywhere, Category = Input)
+	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* LookAction;
 
-	UPROPERTY(EditAnywhere, Category = Input)
+	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* JumpAction;
 
-	UPROPERTY(EditAnywhere, Category = Input)
+	UPROPERTY(EditAnywhere, Category = "Input")
 	float MoveSpeed = 600.f;
 
-	UPROPERTY(EditAnywhere, Category = Input)
+	UPROPERTY(EditAnywhere, Category = "Input")
 	float LookSpeed = 15.f;
 
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
+
+	UPROPERTY(EditDefaultsOnly, Category = "Gun")
+	TSubclassOf<AGun> GunClass;
+
+	UPROPERTY()
+	AGun* Gun;
 
 public:	
 	// Called every frame
