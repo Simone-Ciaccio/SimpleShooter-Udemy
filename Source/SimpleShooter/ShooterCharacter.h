@@ -38,6 +38,9 @@ private:
 	UInputAction* JumpAction;
 
 	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* FireAction;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
 	float MoveSpeed = 600.f;
 
 	UPROPERTY(EditAnywhere, Category = "Input")
@@ -51,6 +54,8 @@ private:
 
 	UPROPERTY()
 	AGun* Gun;
+
+	void Shoot();
 
 public:	
 	// Called every frame

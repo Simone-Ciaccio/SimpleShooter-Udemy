@@ -60,6 +60,8 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AShooterCharacter::Look);
 		// Jump
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &ACharacter::Jump);
+		// Fire
+		EnhancedInputComponent->BindAction(FireAction, ETriggerEvent::Triggered, this, &AShooterCharacter::Shoot);
 	}
 }
 
@@ -81,4 +83,9 @@ void AShooterCharacter::Look(const FInputActionValue& Value)
 	AddControllerPitchInput(LookVector.Y * LookSpeed);
 
 	AddControllerYawInput(LookVector.X * LookSpeed);
+}
+
+void AShooterCharacter::Shoot()
+{
+	Gun->PullTrigger();
 }
