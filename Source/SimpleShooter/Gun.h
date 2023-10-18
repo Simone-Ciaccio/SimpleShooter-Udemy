@@ -33,8 +33,11 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	USkeletalMeshComponent* Mesh;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "Effects")
 	UParticleSystem* MuzzleFlash;
+
+	UPROPERTY(EditAnywhere, Category = "Effects")
+	UParticleSystem* ImpactEffect;
 
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	float MaxRange = 1000.f;
