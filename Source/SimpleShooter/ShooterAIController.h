@@ -14,4 +14,7 @@ class SIMPLESHOOTER_API AShooterAIController : public AAIController
 {
 	GENERATED_BODY()
 	
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 };
