@@ -26,4 +26,6 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	class UBehaviorTree* AIBehavior;
+
+	APawn* PlayerPawn;
 };
