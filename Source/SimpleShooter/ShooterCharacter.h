@@ -49,6 +49,12 @@ private:
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
 
+	UPROPERTY(EditDefaultsOnly, Category = "Stats")
+	float MaxHealth = 100.f;
+
+	UPROPERTY(VisibleAnywhere, Category = "Stats")
+	float Health;
+
 	UPROPERTY(EditDefaultsOnly, Category = "Gun")
 	TSubclassOf<AGun> GunClass;
 
@@ -63,5 +69,7 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
 
 };
